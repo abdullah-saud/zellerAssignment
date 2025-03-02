@@ -3,10 +3,15 @@ import { Product } from "../models/Product";
 
 export class BuyXGetYRule implements PricingRule {
     
-    constructor(public sku: string, 
-        private buyQuantity: number, 
-        private payQuantity: number
-    ) {}
+    public sku: string;
+    private buyQuantity: number;
+    private payQuantity: number;
+
+    constructor(sku: string, buyQuantity: number, payQuantity: number) {
+        this.sku = sku;
+        this.buyQuantity = buyQuantity;
+        this.payQuantity = payQuantity;
+    }
 
     apply(items: Map<string, number>, products: Record<string, Product>): number {
         if (!items.has(this.sku)) return 0;
