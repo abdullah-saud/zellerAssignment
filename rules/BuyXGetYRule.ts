@@ -25,7 +25,6 @@ export const buyXGetYRule = (sku: string, buyQuantity: number, payQuantity: numb
 
         const fullPriceCount = Math.floor(quantity / buyQuantity) * payQuantity;
         const remainingCount = quantity % buyQuantity;
-        console.log(fullPriceCount, remainingCount);
         return { sku, price: (fullPriceCount + remainingCount) * product.price};
     };
 };
